@@ -5,6 +5,8 @@
  */
 package parcialingenieria;
 
+import gui.Ventana;
+
 /**
  *
  * @author kvin2
@@ -16,6 +18,8 @@ public class ParcialIngenieria {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Ventana v= new Ventana();
+        v.setVisible(true);
     }
     
 }
