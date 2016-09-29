@@ -36,6 +36,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTFPassword = new javax.swing.JTextField();
         jBLogIn = new javax.swing.JButton();
+        jBRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        jBRegistrarse.setText("Registrarse");
+        jBRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRegistrarseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,11 +69,14 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBLogIn)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBLogIn)
+                        .addGap(81, 81, 81)
+                        .addComponent(jBRegistrarse))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                         .addComponent(jTFPassword)))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +90,9 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jBLogIn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBLogIn)
+                    .addComponent(jBRegistrarse))
                 .addGap(58, 58, 58))
         );
 
@@ -94,6 +107,18 @@ public class Ventana extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, msj);
     }//GEN-LAST:event_jBLogInActionPerformed
 
+    private void jBRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarseActionPerformed
+        // TODO add your handling code here:
+       String usuario= jTFUsuario.getText();
+        String password=jTFPassword.getText();
+        boolean msj=ctl.crearUsuario(usuario, password);
+        if(msj){
+            JOptionPane.showMessageDialog(null, "Se registro con exito");
+        }else{
+            JOptionPane.showMessageDialog(null, "Ya existe el usuario");
+        }
+    }//GEN-LAST:event_jBRegistrarseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -101,6 +126,7 @@ public class Ventana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBLogIn;
+    private javax.swing.JButton jBRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTFPassword;

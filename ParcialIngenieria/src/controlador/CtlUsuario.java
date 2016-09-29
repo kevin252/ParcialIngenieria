@@ -13,27 +13,29 @@ import modelo.Usuario;
  * @author kvin2
  */
 public class CtlUsuario {
-   
- private ArrayList<Usuario> usuarios;
+
+    private ArrayList<Usuario> usuarios;
 
     public CtlUsuario() {
-        usuarios=new ArrayList<>();
-        usuarios.add(new Usuario("kevin252", "dofus252"));
+        usuarios = new ArrayList<>();
     }
- 
- 
- 
- public String LogIn(String usuario,String password){
-     for (int i = 0; i < usuarios.size(); i++) {
-         if(usuarios.get(i).getUsuario().equals(usuario)&&
-                 usuarios.get(i).getPassword().equals(password)){
-             return "Autenticado";
-         }else{
-             return "No existe el usuario";
-         }
-     }
-     return null;
- }
+
+    public String LogIn(String usuario, String password) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getUsuario().equals(usuario)
+                    && usuarios.get(i).getPassword().equals(password)) {
+                return "Autenticado";
+            } else {
+                return "No existe el usuario";
+            }
+        }
+         return "No existe el usuario";
+    }
+
+    public boolean crearUsuario(String usuario, String password) {
+        usuarios.add(new Usuario(usuario, password));
+        return true;
+    }
 
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;
@@ -43,10 +45,4 @@ public class CtlUsuario {
         this.usuarios = usuarios;
     }
 
-   
-    
-    
-    
-    
-    
 }
